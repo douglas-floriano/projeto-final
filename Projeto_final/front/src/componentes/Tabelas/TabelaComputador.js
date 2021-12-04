@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+
 
 const divStyle = {
   color: 'white'
@@ -9,12 +9,10 @@ const aStyle = {
   textAlign: 'center'
 }
 
-const button = {
-  marginTop: '10vh'
-}
+
 export default function TabelaComputador(props) {
 
-  const history = useHistory()
+
 
   function getLinhas() {
 
@@ -70,14 +68,6 @@ export default function TabelaComputador(props) {
           {getLinhas()}
         </tbody>
       </table>
-      <div
-        className="col-md-12 text-center mb-3">
-        <button
-          type="submit"
-          className="btn btn-dark btn-lg"
-          onClick={() => history.push('/')}
-          style={button}> Início </button>
-      </div>
     </div>
   )
 }

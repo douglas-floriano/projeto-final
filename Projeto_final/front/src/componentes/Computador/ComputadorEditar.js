@@ -11,24 +11,23 @@ const h1 = {
   color: 'white'
 }
 
-
 const button = {
   marginTop: '10vh'
 }
 
 const formStyle = {
-  marginTop: '5vh'
+  marginTop: '3vh'
 }
 
 const inputStyle = {
-  marginTop: '2.5vh'
+  marginTop: '3vh'
 }
 
 export default function ComputadorEditar() {
 
   const history = useHistory()
 
-  let idBoolean = false;
+
 
   const [codigoComputador, setCodigoComputador] = useState(0);
   const [modelo, setModelo] = useState('');
@@ -36,23 +35,16 @@ export default function ComputadorEditar() {
   const [memoria, setMemoria] = useState('');
   const [garantia, setGarantia] = useState('');
   const [fabCodigo, setFabCodigo] = useState('');
-  const [checked, setChecked] = useState(false);
+
 
   const { id } = useParams();
 
-  function IfCrud() {
-    console.log('Id do Computador: ' + id + ' - ' + idBoolean)
-    if (id === 0) {
-      idBoolean = true;
-    } else {
-    }
-  }
+ 
 
   useEffect(() => {
     async function getComputador() {
-      console.log('Computador' + id + ' - ' + idBoolean)
       if (id === 0) {
-        setChecked(true);
+   
         console.log('Inclusão de novo registro!')
       } else {
         const { data } = await urlApi.get('/computador/' + id);
@@ -68,9 +60,8 @@ export default function ComputadorEditar() {
         console.log(data[0].cmp_modelo)
       }
     }
-    IfCrud();
     getComputador();
-  }, []);
+  }, [id]);
 
   async function handleComputador(e) {
     e.preventDefault();

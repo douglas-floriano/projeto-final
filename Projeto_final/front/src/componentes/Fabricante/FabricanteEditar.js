@@ -28,7 +28,7 @@ export default function FabricanteEditar() {
 
   const history = useHistory()
 
-  let idBoolean = false;
+
 
   const [codigo, setCodigo] = useState(0);
   const [nome, setNome] = useState('');
@@ -38,16 +38,11 @@ export default function FabricanteEditar() {
 
   const { id } = useParams();
 
-  function IfCrud() {
-    if (id === 0) {
-      idBoolean = true;
-    } else {
-    }
-  }
+  
 
   useEffect(() => {
     async function getFabricante() {
-      if (id == 0) {
+      if (id === 0) {
       } else {
         const { data } = await urlApi.get('/fabricante/' + id);
         console.log(data)
@@ -60,9 +55,9 @@ export default function FabricanteEditar() {
         console.log(data[0].fil_nomeFilme)
       }
     }
-    IfCrud();
+
     getFabricante();
-  }, []);
+  }, [id]);
 
   async function handleFabricante(e) {
     e.preventDefault();
@@ -74,7 +69,7 @@ export default function FabricanteEditar() {
         alert('Insira um nome válido')
       } else {
         console.log("Codigo Fabricante: ", id)
-        if (id == 0) {
+        if (id === 0) {
           console.log("Inclusão de Registro!")
           await urlApi.post('filme', data)
             .then(response => alert("Inserção Realizada com Sucesso!!!!"))

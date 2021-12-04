@@ -6,7 +6,7 @@ import FabricanteEditar from "../Fabricante/FabricanteEditar";
 import Computador from "../Computador/Computador";
 import ComputadorEditar from "../Computador/ComputadorEditar";
 
-const divStyle = {
+const Style = {
   minHeight: '73.8vh',
   border: '3px solid black',
   marginTop: '0.5vh',
@@ -19,7 +19,7 @@ export default function AreaDados() {
   return (
     <>
       <div
-        style={divStyle}>
+        style={Style}>
         <Switch>
           <Route
             exact path="/fabricante"

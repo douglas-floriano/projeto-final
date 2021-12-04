@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import urlApi from '../../service/api';
 import TabelaFabricante from "../Tabelas/TabelaFabricante";
 
-const divStyle = {
+const Style = {
   height: '100%',
   border: '3px ridge white',
   backgroundColor: 'black',
@@ -11,13 +11,11 @@ const divStyle = {
   color: 'white'
 }
 
-const rowStyle = {
+const linha = {
   marginTop: '5vh'
 }
 
-const rowStyle2 = {
-  marginTop: '5vh'
-}
+
 export default function Fabricante() {
 
   const [fabricante, setFabricante] = useState([])
@@ -32,20 +30,19 @@ export default function Fabricante() {
       <form>
         <div
           id="idFabricante"
-          style={divStyle}>
+          style={Style}>
           <div
             className="container-fluid">
             <div
               className="row"
-              style={rowStyle}>
+              style={linha}>
               <div
                 className="col-md-12">
                 <h1> Fabricantes </h1>
               </div>
             </div>
           </div>
-          <div
-            style={rowStyle2}>
+          <div>
             <TabelaFabricante
               items={fabricante}
               chave={'/fabricante/'}

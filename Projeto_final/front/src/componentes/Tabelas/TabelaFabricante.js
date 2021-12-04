@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+
 
 const divStyle = {
   color: 'white'
@@ -7,13 +7,11 @@ const divStyle = {
 const aStyle = {
   textAlign: 'center'
 }
-const button = {
-  marginTop: '8vh'
-}
+
 
 export default function TabelaFabricante(props) {
 
-  const history = useHistory()
+
   function getLinhas() {
 
     const arrayRegistros = props.items;
@@ -57,14 +55,7 @@ export default function TabelaFabricante(props) {
           {getLinhas()}
         </tbody>
       </table>
-      <div
-        className="col-md-12 text-center mb-3">
-        <button
-          type="submit"
-          className="btn btn-dark btn-lg"
-          onClick={() => history.push('/')}
-          style={button}> Início </button>
-      </div>
+      
     </div>
   )
 }
