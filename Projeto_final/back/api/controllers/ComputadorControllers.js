@@ -8,7 +8,7 @@ module.exports = {
 }
 
 function ComputadorGetAll(require, response) {
-  console.log('Rota Computador Encontrada!');
+  
   const sqlGet = `SELECT * FROM  computador`
   database.query(sqlGet, (err, result) => {
     if (err) console.log(err);
