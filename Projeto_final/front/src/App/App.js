@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import ContainerGeral from '../components/ContainerGeral/ContainerGeral';
+import ContainerGeral from '../componentes/ContainerGeral/ContainerGeral';
 function App() {
   return (
     <>

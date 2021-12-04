@@ -5,8 +5,8 @@ import TabelaFabricante from "../Tabelas/TabelaFabricante";
 
 const divStyle = {
   height: '100%',
-  border: '3px ridge red',
-  backgroundColor: 'rgba(61,59,61,0.5)',
+  border: '3px ridge white',
+  backgroundColor: 'black',
   textAlign: 'center',
   color: 'white'
 }

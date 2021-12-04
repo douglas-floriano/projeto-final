@@ -100,7 +100,7 @@ export default function FabricanteEditar() {
             <div
               className="col-md-12 text-center">
               <h1
-                style={h1}> Formulária de Cadastro </h1>
+                style={h1}> Formulário de Cadastro </h1>
             </div>
             <div
               className="form-group col-md-6 mb-3"

@@ -8,10 +8,10 @@ import ComputadorEditar from "../Computador/ComputadorEditar";
 
 const divStyle = {
   minHeight: '73.8vh',
-  border: '1px ridge black',
+  border: '3px solid black',
   marginTop: '0.5vh',
   paddingTop: '2vh',
-  backgroundColor: 'rgba(61,59,61,0.5)',
+  backgroundColor: 'red',
   fontSize: '18pt'
 }
 
