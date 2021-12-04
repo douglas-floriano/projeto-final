@@ -1,4 +1,6 @@
-USE dados212d;
+CREATE DATABASE  IF NOT EXISTS `dados212n`;
+
+USE `dados212`;
 
 DROP TABLE IF EXISTS `fabricante`;
 
