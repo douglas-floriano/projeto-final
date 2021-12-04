@@ -63,7 +63,7 @@ export default function TabelaComputador(props) {
             <th scope="col"> Memória RAM </th>
             <th scope="col"> Garantia </th>
             <th scope="col"> Código do Fabricante </th>
-            <th scope="col" style={aStyle}><a href={props.chave + '1'} className="btn btn-dark btn-block " > Cadastrar Computador </a></th>
+            <th scope="col" style={aStyle}><a href={props.chave + 0} className="btn btn-dark btn-block " > Cadastrar Computador </a></th>
           </tr>
         </thead>
         <tbody>

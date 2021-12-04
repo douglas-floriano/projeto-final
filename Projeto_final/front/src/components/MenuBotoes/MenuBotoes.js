@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 const menuStyle = {
   minHeight: '10vh',
   border: '1px ridge black',
-  backgroundColor: 'rgba(151,148,148,0.5)',
+  backgroundColor: 'red',
   paddingLeft: '1vw',
   paddingTop: '2vh'
 }

@@ -30,18 +30,18 @@ export default function ComputadorEditar() {
 
   let idBoolean = false;
 
-  const [codigoE, setCodigoE] = useState(0);
-  const [nome, setNome] = useState('');
-  const [sexo, setSexo] = useState('');
-  const [nacionalidade, setNacionalidade] = useState('');
-  const [nascimento, setNascimento] = useState('');
-  const [filCodigo, setFilCodigo] = useState('');
+  const [codigoComputador, setCodigoComputador] = useState(0);
+  const [modelo, setModelo] = useState('');
+  const [tipo, setTipo] = useState('');
+  const [memoria, setMemoria] = useState('');
+  const [garantia, setGarantia] = useState('');
+  const [fabCodigo, setFabCodigo] = useState('');
   const [checked, setChecked] = useState(false);
 
   const { id } = useParams();
 
   function IfCrud() {
-    console.log('Id Elenco: ' + id + ' - ' + idBoolean)
+    console.log('Id do Computador: ' + id + ' - ' + idBoolean)
     if (id === 0) {
       idBoolean = true;
     } else {
@@ -49,49 +49,49 @@ export default function ComputadorEditar() {
   }
 
   useEffect(() => {
-    async function getElenco() {
-      console.log('Elenco: ' + id + ' - ' + idBoolean)
-      if (id == 0) {
+    async function getComputador() {
+      console.log('Computador' + id + ' - ' + idBoolean)
+      if (id === 0) {
         setChecked(true);
         console.log('Inclusão de novo registro!')
       } else {
-        const { data } = await urlApi.get('/elenco/' + id);
+        const { data } = await urlApi.get('/computador/' + id);
         console.log(data)
 
-        setCodigoE(data[0].ele_codigo);
-        setNome(data[0].ele_nome);
-        setSexo(data[0].ele_sexo);
-        setNacionalidade(data[0].ele_nacionalidade);
-        setNascimento(data[0].ele_dtNascimento);
-        setFilCodigo(data[0].fil_codigo);
+        setCodigoComputador(data[0].cmp_codigo);
+        setModelo(data[0].cmp_modelo);
+        setTipo(data[0].cmp_tipo);
+        setMemoria(data[0].cmp_memoria);
+        setGarantia(data[0].cmp_garantia);
+        setFabCodigo(data[0].fab_codigo);
 
-        console.log(data[0].ele_nome)
+        console.log(data[0].cmp_modelo)
       }
     }
     IfCrud();
-    getElenco();
+    getComputador();
   }, []);
 
-  async function handleElenco(e) {
+  async function handleComputador(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
-  
+
 
     try {
-      if (nome.length === 0) {
-        alert('Insira um nome válido')
+      if (modelo.length === 0) {
+        alert('Insira um modelo')
       } else {
-        console.log("Codigo Elenco: ", id)
-        if (id == 0) {
-          console.log("Inclusão de Registro!")
+        console.log("Codigo do Computador: ", id)
+        if (id === 0) {
+          console.log("")
           await urlApi.post('elenco', data)
-            .then(response => alert("Inserção Realizada com Sucesso!!!!"))
+            .then(response => alert("Sucesso"))
         } else {
           console.log("Alteração de Registro! ", id)
-          await urlApi.put('/elenco/' + id, data)
-            .then(response => alert("Alteração Realizada com Sucesso!!!!"))
+          await urlApi.put('/computador/' + id, data)
+            .then(response => alert("Sucesso"))
         }
       }
     } catch (error) {
@@ -103,14 +103,14 @@ export default function ComputadorEditar() {
     <>
       <div >
         <form
-          onSubmit={handleElenco}
+          onSubmit={handleComputador}
           className="container-fluid" style={formStyle}>
           <div
             className="row">
             <div
               className="col-md-12 text-center">
               <h1
-                style={h1}> Formulário de Cadastro </h1>
+                style={h1}> Cadastrar Computador</h1>
             </div>
             <div
               className="form-group col-md-6 mb-3"
@@ -120,65 +120,65 @@ export default function ComputadorEditar() {
               <input
                 type="text"
                 className="form-control form-control-lg"
-                name="ele_codigo"
-                value={codigoE}
-                onChange={e => setCodigoE(e.target.value)}
+                name="cmp_codigo"
+                value={codigoComputador}
+                onChange={e => setCodigoComputador(e.target.value)}
               />
             </div>
             <div
               className="form-group col-md-6 mb-3" style={inputStyle}>
               <label
-                for="ele_nome" style={label}> Nome Ator </label>
+                for="cmp_modelo" style={label}> Modelo </label>
               <input
                 type="text"
                 className="form-control form-control-lg"
-                name="ele_nome"
-                value={nome}
-                onChange={e => setNome(e.target.value)} />
+                name="cmp_modelo"
+                value={modelo}
+                onChange={e => setModelo(e.target.value)} />
             </div>
             <div
               className="form-group col-md-6 mb-3" style={inputStyle}>
               <label
-                for="ele_sexo" style={label}> Sexo </label>
+                for="cmp_tipo" style={label}> Tipo do Computador </label>
               <input
                 type="text"
                 className="form-control form-control-lg"
-                name="ele_sexo"
-                value={sexo}
-                onChange={e => setSexo(e.target.value)} />
+                name="cmp_tipo"
+                value={tipo}
+                onChange={e => setTipo(e.target.value)} />
             </div>
             <div
               className="form-group col-md-6 mb-3" style={inputStyle}>
               <label
-                for="ele_nacionalidade" style={label}> Nacionalidade </label>
+                for="cpm_memoria" style={label}> Capacidade de Memória </label>
               <input
                 type="text"
                 className="form-control form-control-lg"
-                name="ele_nacionalidade"
-                value={nacionalidade}
-                onChange={e => setNacionalidade(e.target.value)} />
+                name="cpm_memoria"
+                value={memoria}
+                onChange={e => setMemoria(e.target.value)} />
             </div>
             <div
               className="form-group col-md-6 mb-3" style={inputStyle}>
               <label
-                for="ele_dtNascimento" style={label}> Data de Nascimento </label>
+                for="cmp_garantia" style={label}> Garantia em Meses </label>
               <input
                 type="text"
                 className="form-control form-control-lg"
-                name="ele_dtNascimento"
-                value={nascimento}
-                onChange={e => setNascimento(e.target.value)} />
+                name="cmp_garantia"
+                value={garantia}
+                onChange={e => setGarantia(e.target.value)} />
             </div>
             <div
               className="form-group col-md-6 mb-3" style={inputStyle}>
               <label
-                for="fil_codigo" style={label}> Código do Filme </label>
+                for="fab_codigo" style={label}> Código do Computador </label>
               <input
                 type="text"
                 className="form-control form-control-lg"
-                name="fil_codigo"
-                value={filCodigo}
-                onChange={e => setFilCodigo(e.target.value)} />
+                name="fab_codigo"
+                value={fabCodigo}
+                onChange={e => setFabCodigo(e.target.value)} />
             </div>
           </div>
           <div
@@ -188,7 +188,7 @@ export default function ComputadorEditar() {
               <button
                 type="submit"
                 className="btn btn-dark btn-lg"
-                onClick={() => history.push('/elenco')}
+                onClick={() => history.push('/computador')}
                 style={button}> Voltar </button>
             </div>
             <div

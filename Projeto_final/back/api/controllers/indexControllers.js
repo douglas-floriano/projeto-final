@@ -1,4 +1,4 @@
-const db = require('../../config/db.js');
+const db = require('../../config/conexao.js');
 
 module.exports = {
   indexControllers
